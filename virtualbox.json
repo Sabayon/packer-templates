@@ -1,0 +1,76 @@
+{
+  "builders": [
+    {
+      "boot_command": [
+        "<down><down><down>",
+        "<enter>",
+	"<enter>",
+        "<wait10>",
+        "<wait10>",
+        "<wait10>",
+        "<wait10>",
+        "<wait10>",
+	"useradd -m -s /bin/bash {{user `username`}}",
+	"<enter>",
+	"<wait>",	
+        "passwd {{user `username`}}",
+        "<enter>",
+        "<wait>",
+	"gpasswd -a wheel {{user `username`}}",
+	"<enter>",
+	"<wait>",
+        "{{user `password`}}",
+        "<enter>",
+        "<wait>",
+        "{{user `password`}}",
+        "<enter>",
+        "<wait>",
+	"equo up && equo i openssh app-admin/sudo",
+	"<enter>",
+	"<wait10>",
+	"<wait10>",
+	"<wait10>",
+	"<wait10>",
+        "<wait10>",
+	"echo '{{user `username`}} ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/{{user `username`}}",
+	"<enter>",
+	"<wait>",
+	"sed -i -e 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config",
+	"<enter>",
+	"sed -i -e 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config",
+	"<enter>",
+        "systemctl start sshd",
+        "<enter>",
+        "<wait10>",
+	"<wait10>"
+      ],
+      "boot_wait": "5s",
+      "disk_size": 60000,
+      "guest_additions_mode": "disable",
+      "guest_os_type": "Gentoo_64",
+      "headless": false,
+      "iso_url": "http://na.mirror.garr.it/mirrors/sabayonlinux/iso/{{user `build_type`}}/Sabayon_Linux_{{user `build`}}_amd64_SpinBase.iso",
+      "iso_checksum_type": "none",
+      "shutdown_command": "shutdown -hP now",
+      "ssh_password": "{{user `password`}}",
+      "ssh_username": "{{user `username`}}",
+      "ssh_wait_timeout": "20s",
+      "type": "virtualbox-iso",
+      "vm_name": "Sabayon SpinBase"
+    }
+  ],
+  "description": "Sabayon Virtualbox Image",
+  "post-processors": [
+    {
+      "output": "sabayon-amd64-spinbase-virtualbox.box",
+      "type": "vagrant"
+    }
+  ],
+  "variables": {
+    "password": "vagrant",
+    "build": "DAILY",
+    "build_type": "daily",
+    "username": "vagrant"
+  }
+}
+
