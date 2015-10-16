@@ -40,7 +40,7 @@
       "guest_additions_mode": "disable",
       "guest_os_type": "Gentoo_64",
       "headless": false,
-      "iso_url": "http://na.mirror.garr.it/mirrors/sabayonlinux/iso/{{user `build_type`}}/Sabayon_Linux_{{user `build`}}_amd64_SpinBase.iso",
+      "iso_url": "http://na.mirror.garr.it/mirrors/sabayonlinux/iso/{{user `build_type`}}/Sabayon_Linux_{{user `build`}}_amd64_{{user `flavor`}}.iso",
       "iso_checksum_type": "none",
       "shutdown_command": "shutdown -hP now",
       "ssh_password": "{{user `root_password`}}",
@@ -73,7 +73,8 @@
     "root_username": "root",
     "root_password": "root",
     "build": "DAILY",
-    "build_type": "daily"
+    "build_type": "daily",
+    "flavor": "SpinBase"
   }
 }
 
