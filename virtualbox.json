@@ -52,8 +52,9 @@
   ],
   "description": "Sabayon Virtualbox Image",
   "post-processors": [
+    [
     {
-      "output": "sabayon-amd64-spinbase-virtualbox.box",
+      "output": "sabayon-amd64-spinbase.box",
       "type": "vagrant"
     },
      {
@@ -75,7 +76,7 @@
           "created_at": "{{timestamp}}"
        }
      }
-
+    ]
   ],
   "provisioners": [
     {
