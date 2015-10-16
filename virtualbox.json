@@ -80,9 +80,29 @@
     {
       "output": "sabayon-amd64-spinbase-virtualbox.box",
       "type": "vagrant"
-    }
+    },
+     {
+        "type": "atlas",
+        "token": "{{user `atlas_token`}}",
+        "artifact": "Sabayon/spinbase-amd64",
+        "artifact_type": "vagrant.box",
+        "metadata": {
+          "created_at": "{{timestamp}}"
+       }
+     },
+     {
+        "type": "atlas",
+        "token": "{{user `atlas_token`}}",
+        "artifact": "Sabayon/spinbase-amd64",
+        "artifact_type": "virtualbox.image",
+        "metadata": {
+          "created_at": "{{timestamp}}"
+       }
+     }
+
   ],
   "variables": {
+    "atlas_token" : "ATLAS_TOKEN",
     "root_username": "root",
     "root_password": "root",
     "password": "vagrant",
