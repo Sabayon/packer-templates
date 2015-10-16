@@ -9,19 +9,6 @@
         "<wait10>",
         "<wait10>",
         "<wait10>",
-        "<wait10>",
-	"useradd -m -s /bin/bash {{user `username`}}",
-	"<enter>",
-	"<wait>",	
-        "passwd {{user `username`}}",
-        "<enter>",
-        "<wait>",
-        "{{user `password`}}",
-        "<enter>",
-        "<wait>",
-        "{{user `password`}}",
-        "<enter>",
-        "<wait>",
  	"passwd {{user `root_username`}}",
         "<enter>",
         "<wait>",
@@ -29,20 +16,14 @@
         "<enter>",
         "<wait>",
         "{{user `root_password`}}",
-        "<enter>",
-        "<wait>",
-	"gpasswd -a {{user `username`}} wheel",
 	"<enter>",
-	"<wait>",
-	"equo up && echo 3 | equo i openssh app-admin/sudo",
+	"<wait10>",
+	"equo up && echo 3 | equo i openssh",
 	"<enter>",
 	"<wait10>",
 	"<wait10>",
 	"<wait10>",
 	"<wait10>",
-        "<wait10>",
-	"echo '{{user `username`}} ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers.d/{{user `username`}}",
-	"<enter>",
 	"<wait>",
 	"sed -i -e 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config",
 	"<enter>",
@@ -50,15 +31,9 @@
 	"<enter>",
 	"sed -i -e 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config",
 	"<enter>",
-	"su {{user `username`}} -c 'mkdir -p /home/{{user `username`}}/.ssh;chmod 0700 /home/{{user `username`}}/.ssh'",
-	"<enter>",
-	"su {{user `username`}} -c 'wget {{user `vagrant_pubkey_url`}} -O /home/{{user `username`}}/.ssh/authorized_keys; chmod 0600 /home/{{user `username`}}/.ssh/authorized_keys'",
-	"<enter>",
-	"<wait10>",
         "systemctl start sshd",
         "<enter>",
-        "<wait10>",
-	"<wait10>"
+        "<wait10>"
       ],
       "boot_wait": "5s",
       "disk_size": 60000,
@@ -102,15 +77,28 @@
      }
 
   ],
+  "provisioners": [
+    {
+      "destination": "/tmp",
+      "source": "scripts",
+      "type": "file"
+    },
+    {
+      "environment_vars": [
+        "SCRIPTS=/tmp"
+      ],
+      "scripts": [
+        "provision.sh"
+      ],
+      "type": "shell"
+    }
+  ],
   "variables": {
     "atlas_token" : "{{env `ATLAS_TOKEN`}}",
     "root_username": "root",
     "root_password": "root",
-    "password": "vagrant",
     "build": "DAILY",
-    "build_type": "daily",
-    "username": "vagrant",
-    "vagrant_pubkey_url": "https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub"
+    "build_type": "daily"
   }
 }
 
