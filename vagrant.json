@@ -51,7 +51,33 @@
     }
   ],
   "description": "Sabayon Virtualbox Image",
-  "post-processors": ["compress"],
+  "post-processors": [
+    [
+    {
+      "output": "sabayon-amd64-spinbase.box",
+      "type": "vagrant"
+    },
+     {
+        "type": "atlas",
+        "token": "{{user `atlas_token`}}",
+        "artifact": "Sabayon/spinbase-amd64",
+        "artifact_type": "vagrant.box",
+        "metadata": {
+          "created_at": "{{timestamp}}",
+	  "provider": "virtualbox"
+       }
+     },
+     {
+        "type": "atlas",
+        "token": "{{user `atlas_token`}}",
+        "artifact": "Sabayon/spinbase-amd64",
+        "artifact_type": "virtualbox.image",
+        "metadata": {
+          "created_at": "{{timestamp}}"
+       }
+     }
+    ]
+  ],
   "provisioners": [
     {
       "destination": "/tmp",
