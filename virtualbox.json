@@ -102,7 +102,7 @@
 
   ],
   "variables": {
-    "atlas_token" : "ATLAS_TOKEN",
+    "atlas_token" : "{{env `ATLAS_TOKEN`}}",
     "root_username": "root",
     "root_password": "root",
     "password": "vagrant",
