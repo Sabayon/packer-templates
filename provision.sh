@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export LC_ALL=en_US.UTF-8
+
 if [[ -z $SCRIPTS ]]
 then
   SCRIPTS=.
@@ -14,7 +16,7 @@ for script in \
   timezone    \
   fstab       \
   grub        \
-  vagrant     \
+  $VAGRANT    \
   cleanup
 do
   "$SCRIPTS/scripts/$script.sh"

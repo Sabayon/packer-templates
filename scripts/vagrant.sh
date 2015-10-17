@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Configuring vagrant!"
+
 chroot /mnt/sabayon /bin/bash <<'EOF'
 echo 3 | equo i app-admin/sudo
 echo 3 | equo i net-fs/nfs-utils

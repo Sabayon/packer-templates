@@ -33,4 +33,4 @@ You can always download the boxes using Atlas providers link:
 ## Credentials
 
 The **root** user has the **root** password, so if you are going to deploy this image, you want to change that.
-There is the user "vagrant" that can be accessed by issuing "vagrant ssh" (pubkeys are the insecure ones needed by Vagrant).
+There is the user "vagrant" with password **vagrant** that can be accessed by issuing "vagrant ssh" (pubkeys are the insecure ones needed by Vagrant).

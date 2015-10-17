@@ -165,22 +165,6 @@
    ],
    "description":"Sabayon SpinBase",
    "post-processors":[
-      [
-         {
-            "output":"Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}.box",
-            "type":"vagrant"
-         },
-         {
-            "type":"atlas",
-            "token":"{{user `atlas_token`}}",
-            "artifact":"Sabayon/spinbase-amd64",
-            "artifact_type":"vagrant.box",
-            "metadata":{
-               "created_at":"{{timestamp}}",
-               "provider":"virtualbox"
-            }
-         }
-      ],
       {
          "type":"compress",
          "output":"Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}-vmware.tar.gz",
@@ -228,7 +212,7 @@
       "build_type":"daily",
       "arch":"amd64",
       "disk_size":"60000",
-      "vagrant":"vagrant",
+      "vagrant":"",
       "flavor":"SpinBase"
    }
 }
