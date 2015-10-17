@@ -24,6 +24,8 @@
 	"<wait10>",
 	"<wait10>",
 	"<wait10>",
+	"<wait10>",
+	"<wait10>",
 	"<wait>",
 	"sed -i -e 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config",
 	"<enter>",
@@ -33,7 +35,8 @@
 	"<enter>",
         "systemctl start sshd",
         "<enter>",
-        "<wait10>"
+        "<wait10>",
+	"<wait10>"
       ],
       "boot_wait": "5s",
       "disk_size": 60000,
