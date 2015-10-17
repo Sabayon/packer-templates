@@ -2,7 +2,7 @@
 
 Now you can build fresh vagrant, virtualbox and VMware Sabayon images with [packer](https://packer.io/).
 
-Download the repository and then:
+Download the repository and then, choose on what are you interested in:
 
 ### Vagrant
 
@@ -28,3 +28,9 @@ You can always download the boxes using Atlas providers link:
 ### VMware
 
 	packer build -force vmware.json
+
+
+## Credentials
+
+The **root** user has the **root** password, so if you are going to deploy this image, you want to change that.
+There is the user "vagrant" that can be accessed by issuing "vagrant ssh" (pubkeys are the insecure ones needed by Vagrant).

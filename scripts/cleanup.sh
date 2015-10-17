@@ -9,6 +9,9 @@ cp /etc/systemd/system/autologin@.service \
 
 rm -rf /etc/systemd/system/autologin@.service
 
+sed -i -e 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
+sed -i -e 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
+
 EOF
 
 rm -rf /mnt/sabayon/usr/portage
