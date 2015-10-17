@@ -40,7 +40,7 @@
       "guest_additions_mode": "disable",
       "guest_os_type": "Gentoo_64",
       "headless": false,
-      "iso_url": "http://na.mirror.garr.it/mirrors/sabayonlinux/iso/{{user `build_type`}}/Sabayon_Linux_{{user `build`}}_amd64_{{user `flavor`}}.iso",
+      "iso_url": "http://na.mirror.garr.it/mirrors/sabayonlinux/iso/{{user `build_type`}}/Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}.iso",
       "iso_checksum_type": "none",
       "shutdown_command": "shutdown -hP now",
       "ssh_password": "{{user `root_password`}}",
@@ -50,23 +50,23 @@
       "vm_name": "Sabayon SpinBase"
     }
   ],
-  "description": "Sabayon Virtualbox Image",
+  "description": "Sabayon Vagrant Image",
   "post-processors": [
     [
     {
-      "output": "sabayon-amd64-spinbase.box",
+      "output": "Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}.box",
       "type": "vagrant"
     },
-     {
-        "type": "atlas",
-        "token": "{{user `atlas_token`}}",
-        "artifact": "Sabayon/spinbase-amd64",
-        "artifact_type": "vagrant.box",
-        "metadata": {
-          "created_at": "{{timestamp}}",
+    {
+	"type": "atlas",
+	"token": "{{user `atlas_token`}}",
+	"artifact": "Sabayon/spinbase-amd64",
+	"artifact_type": "vagrant.box",
+	"metadata": {
+	  "created_at": "{{timestamp}}",
 	  "provider": "virtualbox"
-       }
-     }
+         }
+    }
     ]
   ],
   "provisioners": [
@@ -91,6 +91,7 @@
     "root_password": "root",
     "build": "DAILY",
     "build_type": "daily",
+    "arch": "amd64",
     "flavor": "SpinBase"
   }
 }

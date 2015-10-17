@@ -39,7 +39,7 @@
       "disk_size": 60000,
       "guest_os_type": "Gentoo_64",
       "headless": false,
-      "iso_url": "http://na.mirror.garr.it/mirrors/sabayonlinux/iso/{{user `build_type`}}/Sabayon_Linux_{{user `build`}}_amd64_{{user `flavor`}}.iso",
+      "iso_url": "http://na.mirror.garr.it/mirrors/sabayonlinux/iso/{{user `build_type`}}/Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}.iso",
       "iso_checksum_type": "none",
       "shutdown_command": "shutdown -hP now",
       "ssh_password": "{{user `root_password`}}",
@@ -49,8 +49,13 @@
       "vm_name": "Sabayon SpinBase"
     }
   ],
-  "description": "Sabayon Virtualbox Image",
-  "post-processors": ["compress"],
+  "description": "Sabayon VMware Image",
+  "post-processors": [
+	  {
+		    "type": "compress",
+		    "output": "Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}-vmware.tar.gz"
+	  }
+  ],
   "provisioners": [
     {
       "destination": "/tmp",
@@ -73,6 +78,7 @@
     "root_password": "root",
     "build": "DAILY",
     "build_type": "daily",
+    "arch": "amd64",
     "flavor": "SpinBase"
   }
 }
