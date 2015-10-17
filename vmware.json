@@ -49,7 +49,12 @@
       "ssh_username": "{{user `root_username`}}",
       "ssh_wait_timeout": "20s",
       "type": "vmware-iso",
-      "vm_name": "Sabayon SpinBase"
+      "vm_name": "Sabayon SpinBase",
+      "vmx_data": {
+        "cpuid.coresPerSocket": "1",
+        "memsize": "1024",
+        "numvcpus": "1"
+       }
     }
   ],
   "description": "Sabayon VMware Image",

@@ -101,7 +101,12 @@
          "ssh_password":"{{user `root_password`}}",
          "ssh_username":"{{user `root_username`}}",
          "ssh_wait_timeout":"20s",
-         "vm_name":"Sabayon VMware SpinBase"
+         "vm_name":"Sabayon VMware SpinBase",
+         "vmx_data": {
+           "cpuid.coresPerSocket": "1",
+           "memsize": "1024",
+           "numvcpus": "1"
+         }
       },
       {
          "type":"qemu",
