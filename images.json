@@ -171,6 +171,13 @@
    "description":"Sabayon SpinBase",
    "post-processors":[
       {
+            "output":"Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}.box",
+            "type":"vagrant",
+	    "only":[
+	            "virtualbox-iso"
+            ]
+      },
+      {
          "type":"compress",
          "output":"Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}-vmware.tar.gz",
          "only":[
