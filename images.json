@@ -217,7 +217,6 @@
       }
    ],
    "variables":{
-      "atlas_token":"{{env `ATLAS_TOKEN`}}",
       "root_username":"root",
       "root_password":"root",
       "build":"DAILY",
