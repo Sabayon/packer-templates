@@ -51,65 +51,6 @@
          "ssh_username":"{{user `root_username`}}",
          "ssh_wait_timeout":"20s",
          "vm_name":"Sabayon VirtualBox SpinBase"
-      },
-      {
-         "type":"qemu",
-         "boot_command":[
-            "<down>",
-            "<enter>",
-            "<enter>",
-            "<wait10>",
-            "<wait10>",
-            "<wait10>",
-            "<wait10>",
-            "passwd {{user `root_username`}}",
-            "<enter>",
-            "<wait>",
-            "{{user `root_password`}}",
-            "<enter>",
-            "<wait>",
-            "{{user `root_password`}}",
-            "<enter>",
-            "<wait10>",
-            "equo up && echo 3 | equo i openssh",
-            "<enter>",
-            "<wait10>",
-            "<wait10>",
-            "<wait10>",
-            "<wait10>",
-            "<wait10>",
-            "<wait10>",
-            "<wait>",
-            "sed -i -e 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config",
-            "<enter>",
-            "echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config",
-            "<enter>",
-            "sed -i -e 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config",
-            "<enter>",
-            "systemctl start sshd",
-            "<enter>",
-            "<wait10>",
-            "<wait10>"
-         ],
-         "boot_wait":"5s",
-         "disk_size": "{{user `disk_size`}}",
-         "format":"qcow2",
-         "accelerator":"kvm",
-         "disk_interface":"ide",
-         "headless": true,
-         "iso_url":"http://na.mirror.garr.it/mirrors/sabayonlinux/iso/{{user `build_type`}}/Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}.iso",
-         "iso_checksum_type":"none",
-         "shutdown_command":"shutdown -hP now",
-         "ssh_password":"{{user `root_password`}}",
-         "ssh_username":"{{user `root_username`}}",
-         "ssh_wait_timeout":"20s",
-         "vm_name":"Sabayon QEMU SpinBase",
-         "qemuargs":[
-            [
-               "-m",
-               "1024M"
-            ]
-         ]
       }
    ],
    "description":"Sabayon SpinBase",
@@ -117,10 +58,7 @@
       [
          {
             "output":"Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}.box",
-            "type":"vagrant",
-            "only":[
-               "virtualbox-iso"
-	    ]
+            "type":"vagrant"
          },
          {
             "type":"atlas",
@@ -132,21 +70,7 @@
                "provider":"virtualbox"
             }
          }
-      ],
-      {
-         "type":"compress",
-         "output":"Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}-ovf.tar.gz",
-         "only":[
-            "virtualbox-iso"
-         ]
-      },
-      {
-         "type":"compress",
-         "output":"Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}-qemu.tar.gz",
-         "only":[
-            "qemu"
-         ]
-      }
+      ]
    ],
    "provisioners":[
       {
