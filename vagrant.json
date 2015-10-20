@@ -117,7 +117,10 @@
       [
          {
             "output":"Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}.box",
-            "type":"vagrant"
+            "type":"vagrant",
+            "only":[
+               "virtualbox-iso"
+	    ]
          },
          {
             "type":"atlas",
