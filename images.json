@@ -209,6 +209,7 @@
          "environment_vars":[
             "SCRIPTS=/tmp",
             "VAGRANT={{user `vagrant`}}"
+            "GUEST_ADDITIONS={{user `guest_additions`}}"
          ],
          "scripts":[
             "provision.sh"
@@ -224,6 +225,7 @@
       "arch":"amd64",
       "disk_size":"60000",
       "vagrant":"",
+      "guest_additions": "",
       "flavor":"SpinBase"
    }
 }

@@ -17,6 +17,7 @@ for script in \
   fstab       \
   grub        \
   $VAGRANT    \
+  $GUEST_ADDITIONS    \
   cleanup
 do
   "$SCRIPTS/scripts/$script.sh"
