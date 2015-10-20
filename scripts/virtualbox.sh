@@ -7,4 +7,5 @@ rsync -av -H -A -X --delete-during "rsync://rsync.at.gentoo.org/gentoo-portage/l
 ls /usr/portage/licenses -1 | xargs -0 > /etc/entropy/packages/license.accept
 equo i app-emulation/virtualbox-guest-additions
 rm -rf /etc/entropy/packages/license.accept
+systemctl enable virtualbox-guest-additions
 EOF
