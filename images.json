@@ -208,7 +208,7 @@
       {
          "environment_vars":[
             "SCRIPTS=/tmp",
-            "VAGRANT={{user `vagrant`}}"
+            "VAGRANT={{user `vagrant`}}",
             "GUEST_ADDITIONS={{user `guest_additions`}}"
          ],
          "scripts":[
