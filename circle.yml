@@ -1,0 +1,21 @@
+machine:
+  environment:
+    PATH: "${HOME}/bin:${PATH}"
+
+dependencies:
+  cache_directories:
+    - "~/bin"
+  pre:
+    - mkdir -p ~/bin
+    - ./ci/dependencies.sh
+
+test:
+  override:
+    - ./ci/packer-validate.sh
+
+deployment:
+  packer:
+    branch: master
+    commands:
+      - ./ci/packer-build.sh
+      - ./ci/deploy.sh
