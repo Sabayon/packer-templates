@@ -97,7 +97,7 @@
       "build":"DAILY",
       "build_type":"daily",
       "arch":"amd64",
-      "disk_size":"60000",
+      "disk_size":"100000",
       "vagrant":"vagrant",
       "guest_additions" : "virtualbox",
       "flavor":"SpinBase"
