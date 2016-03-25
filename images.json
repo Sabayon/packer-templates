@@ -94,7 +94,6 @@
          "boot_wait":"5s",
          "disk_size": "{{user `disk_size`}}",
          "guest_os_type":"Gentoo_64",
-         "headless":true,
          "iso_url":"http://na.mirror.garr.it/mirrors/sabayonlinux/iso/{{user `build_type`}}/Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}.iso",
          "iso_checksum_type":"none",
          "shutdown_command":"shutdown -hP now",
