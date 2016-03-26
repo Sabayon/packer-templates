@@ -20,6 +20,7 @@ rm -rf /mnt/sabayon/var/log/*
 rm -rf /mnt/sabayon/var/tmp/*
 
 equo i zerofree
+systemctl enable sshd
 
 mount -o remount,ro /mnt/sabayon
 zerofree /dev/sda4
