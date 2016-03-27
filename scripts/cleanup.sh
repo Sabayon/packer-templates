@@ -21,12 +21,9 @@ rm -rf /mnt/sabayon/var/tmp/*
 
 systemctl enable sshd
 
-#if [ "x${PACKER_BUILD_TYPE}" != "xvmware-iso" ]; then
-    # Zero the root disk to help with compacting. This seems to cause corruption for vmware
-    equo i zerofree
-    mount -o remount,ro /mnt/sabayon
-    zerofree /dev/sda4
-#fi
+equo i zerofree
+mount -o remount,ro /mnt/sabayon
+zerofree /dev/sda4
 
 swapoff /dev/sda3
 dd if=/dev/zero of=/dev/sda3
