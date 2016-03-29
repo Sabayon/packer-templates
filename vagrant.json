@@ -39,9 +39,14 @@
             "<wait10>",
             "<wait10>"
          ],
+	 "vboxmanage": [
+	      ["storagectl", "{{.Name}}", "--name", "SATA Controller", "--portcount", "2"]
+    	 ],
          "boot_wait":"5s",
          "disk_size": "{{user `disk_size`}}",
          "guest_additions_mode":"disable",
+    	 "iso_interface": "sata",
+	 "hard_drive_interface": "sata",
          "guest_os_type":"Gentoo_64",
          "headless":true,
          "iso_url":"http://na.mirror.garr.it/mirrors/sabayonlinux/iso/{{user `build_type`}}/Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}.iso",
