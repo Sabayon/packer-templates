@@ -19,7 +19,7 @@
             "{{user `root_password`}}",
             "<enter>",
             "<wait10>",
-            "equo up && echo 3 | equo i openssh",
+            "equo up && ACCEPT_LICENSE=* equo i openssh",
             "<enter>",
             "<wait10>",
             "<wait10>",
