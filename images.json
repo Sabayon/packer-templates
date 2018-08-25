@@ -44,7 +44,7 @@
          "guest_additions_mode":"disable",
          "guest_os_type":"Gentoo_64",
          "headless":true,
-         "iso_url":"http://na.mirror.garr.it/mirrors/sabayonlinux/iso/{{user `build_type`}}/Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}.iso",
+         "iso_url":"https://dispatcher.sabayon.org/sbi/namespace/spinbase%3Aiso/iso/Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}.iso",
          "iso_checksum_type":"none",
          "shutdown_command":"shutdown -hP now",
          "ssh_password":"{{user `root_password`}}",
@@ -314,7 +314,7 @@
             "output":"Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}.box",
             "type":"vagrant",
 	    "only":[
-	            "qemu"
+	            "virtualbox-iso"
             ]
       },
       {
@@ -349,7 +349,9 @@
          "environment_vars":[
             "SCRIPTS=/tmp",
             "VAGRANT={{user `vagrant`}}",
-            "GUEST_ADDITIONS={{user `guest_additions`}}"
+            "GUEST_ADDITIONS={{user `guest_additions`}}",
+            "EXTRA={{user `extra`}}"
+
          ],
          "scripts":[
             "provision.sh"

@@ -17,6 +17,7 @@ for script in \
   fstab       \
   grub        \
   $VAGRANT    \
+  $EXTRA      \
   $GUEST_ADDITIONS    \
   cleanup
 do

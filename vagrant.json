@@ -88,6 +88,8 @@
             "SCRIPTS=/tmp",
             "VAGRANT={{user `vagrant`}}",
             "GUEST_ADDITIONS={{user `guest_additions`}}"
+            "EXTRA={{user `extra`}}"
+
          ],
          "scripts":[
             "provision.sh"
