@@ -60,8 +60,7 @@ Note: This will produce a vagrant box as well
 ### Docker
 
     docker build --rm --no-cache -t packer-sabayon .
-    docker run --privileged=true --device /dev/vboxdrv:/dev/vboxdrv  -v $(pwd):/root --rm -ti packer-sabayon:latest /usr/bin/packer build -var 'flavor=Server' -var 'vagrant=vagrant' -var 'guest_additions=virtualbox' -var 'extra=extra' -only virtualbox-iso 
-images.json    
+    docker run --privileged=true --device /dev/vboxdrv:/dev/vboxdrv  -v $(pwd):/root --rm -ti packer-sabayon:latest /usr/bin/packer build -var 'flavor=Server' -var 'vagrant=vagrant' -var 'guest_additions=virtualbox' -var 'extra=extra' -only virtualbox-iso images.json    
 
 ## Credentials
 
