@@ -3,12 +3,14 @@
       {
          "type":"virtualbox-iso",
          "boot_command":[
-            "<down>",
             "<enter>",
             "<enter>",
             "<wait10>",
             "<wait10>",
             "<wait10>",
+	    "<wait10>",
+            "<wait10>",
+	    "<wait10>",
             "<wait10>",
             "passwd {{user `root_username`}}",
             "<enter>",
@@ -25,6 +27,7 @@
             "<wait10>",
             "<wait10>",
             "<wait10>",
+	    "<wait10>",
             "<wait10>",
             "<wait10>",
             "<wait>",
