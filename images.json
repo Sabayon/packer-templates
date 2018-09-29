@@ -44,7 +44,7 @@
          "guest_additions_mode":"disable",
          "guest_os_type":"Gentoo_64",
          "headless":true,
-         "iso_url":"https://dispatcher.sabayon.org/sbi/namespace/spinbase%3Aiso/iso/Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}.iso",
+         "iso_url":"https://dispatcher.sabayon.org/sbi/namespace/sabayon%3Aiso/iso/Sabayon_Linux_{{user `build`}}_{{user `arch`}}_{{user `flavor`}}.iso",
          "iso_checksum_type":"none",
          "shutdown_command":"shutdown -hP now",
          "ssh_password":"{{user `root_password`}}",
