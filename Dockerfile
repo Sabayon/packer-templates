@@ -2,6 +2,9 @@ FROM sabayon/base-amd64
 
 MAINTAINER mudler <mudler@sabayonlinux.org>
 
+ARG KERNEL=4.18.0-sabayon
+ARG VBOX_VERSION=5.2.18
+
 # Set locales to en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 
@@ -14,7 +17,7 @@ WORKDIR /root
 
 RUN equo up && \
     equo i packer-bin app-emulation/virtualbox-bin \
-           app-emulation/virtualbox-modules-5.2.18#4.18.0-sabayon
+           app-emulation/virtualbox-modules-${VBOX_VERSION}#${KERNEL}
 
 
 
