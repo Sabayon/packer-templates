@@ -107,7 +107,7 @@
          "vm_name":"Sabayon VMware SpinBase",
          "vmx_data": {
            "cpuid.coresPerSocket": "1",
-           "memsize": "4096",
+           "memsize": "8192",
            "numvcpus": "2"
          }
       },
@@ -306,7 +306,7 @@
          "qemuargs":[
             [
                "-m",
-               "4096M"
+               "8192M"
             ]
          ]
       }
