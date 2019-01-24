@@ -18,8 +18,8 @@ for script in \
   grub        \
   $VAGRANT    \
   $EXTRA      \
-  cleanup     \
-  $GUEST_ADDITIONS
+  $GUEST_ADDITIONS \
+  cleanup
 
 do
   "$SCRIPTS/scripts/$script.sh"

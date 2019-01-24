@@ -8,7 +8,7 @@ equo rm app-admin/calamares app-misc/calamares-sabayon-server-base-modules app-m
 for c in "x11-libs" "x11-themes" "dev-qt" "kde-frameworks" "media-libs";
 do
 
-    TO_REMOVE=$(equo q list installed -q | grep $c )
+    TO_REMOVE=$(equo q list installed -q | grep $c | grep -v virtualbox)
     for i in ${TO_REMOVE[@]};do echo "Removing $i"; equo rm $i; done
 
 done
