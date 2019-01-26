@@ -18,9 +18,9 @@ for script in \
   grub        \
   $VAGRANT    \
   $EXTRA      \
+  clean       \
   $GUEST_ADDITIONS \
-  cleanup
-
+  setup
 do
   "$SCRIPTS/scripts/$script.sh"
 done
