@@ -2,8 +2,8 @@ FROM sabayon/base-amd64
 
 MAINTAINER mudler <mudler@sabayonlinux.org>
 
-ARG KERNEL=4.18.0-sabayon
-ARG VBOX_VERSION=5.2.18
+ARG KERNEL=4.20.0-sabayon
+ARG VBOX_VERSION=6.0.4.128413
 
 # Set locales to en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
