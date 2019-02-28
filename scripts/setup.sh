@@ -1,7 +1,9 @@
 #!/bin/bash
 
 chroot /mnt/sabayon /bin/bash <<'EOF'
+ACCEPT_LICENSE=* equo i net-misc/networkmanager
 systemctl enable sshd
+systemctl enable NetworkManager
 
 cp /etc/systemd/system/autologin@.service \
     /usr/lib/systemd/system/getty@.service
