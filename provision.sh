@@ -18,7 +18,6 @@ for script in \
   grub        \
   $VAGRANT    \
   $EXTRA      \
-  clean       \
   $GUEST_ADDITIONS \
   setup
 do
